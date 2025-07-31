@@ -1,0 +1,12 @@
+log=[]
+let anchor = document.createElement('a');
+for(let i=0; i<=0x10ffff; i++) {
+	anchor.href = `javascript${String.fromCodePoint(i)}:`;
+	if(anchor.protocol === 'javascipt:') {
+		log.push(i);
+	}
+}
+
+// For getting true characters
+
+log.map(x=>String.fromCharCode(x))
