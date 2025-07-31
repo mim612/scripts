@@ -1,0 +1,25 @@
+function chr
+    if test (count $argv) -eq 0
+        echo "Usage: chr <ascii_code>"
+        return 1
+    end
+
+    if test $argv[1] -lt 0 -o $argv[1] -gt 255
+        echo "Error: value must be between 0 and 255"
+        return 1
+    end
+
+    set hex (printf "%x" $argv[1])
+    printf "\x$hex"
+end
+
+function ascii_decoder
+    set input $argv[1]
+
+    # جدا کردن مقادیر با کاما
+    for code in (string split ',' $input)
+        chr $code
+    end
+
+    echo ""
+end
